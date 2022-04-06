@@ -23,7 +23,7 @@ def domainall(url):
     domain =urlparse(url).netloc
     print('get domain from url',domain)
 
-    p = Popen(["bash", "run.sh"]+domain)
+    p = Popen(["bash", "run.sh",domain])
 
     # Wait until process terminates
     while p.poll() is None:
