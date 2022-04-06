@@ -62,7 +62,6 @@ def index() -> None:
     # run_js(FOOTER)
     
     url = input("input your target domain",datalist=popular_shopify_stores)    
-    print('check url',url)
     # if not isvaliddomain(url):
     #     return {"urls": 'not a valid domain'}
     if url.startswith("http://"):
@@ -84,6 +83,7 @@ def index() -> None:
     with use_scope('log'):
 
         with battery.redirect_stdout():
+            print('crack url',url)
 
             urls =domainall(url)
 
