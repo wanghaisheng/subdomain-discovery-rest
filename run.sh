@@ -10,7 +10,6 @@
 # tested on Mac
 
 # 增加执行权限
-chmod +x httpx subfinder ksubdomain
 
 
 

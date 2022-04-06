@@ -7,3 +7,5 @@ COPY . /app
 RUN pip install -r requirements.txt
 USER root 
 RUN chmod 777 ./ksubdomain
+RUN chmod 777 ./httpx
+RUN chmod 777 ./subfinder

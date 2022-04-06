@@ -24,7 +24,7 @@ def domainall(domain):
         domain =urlparse(domain).netloc
     print('get domain from url',domain)
     args=["bash", "run.sh",domain]
-    print('subdomain command ',args)
+    # print('subdomain command ',args)
     p = Popen(args)
 
     # Wait until process terminates
