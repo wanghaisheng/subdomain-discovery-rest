@@ -13,7 +13,7 @@ import pywebio_battery as battery
 from app.constants import *
 import os
 from urllib.parse import urlparse
-
+import subprocess
 app = FastAPI()
 
 apiapp= FastAPI()
