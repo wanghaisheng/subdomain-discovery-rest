@@ -32,10 +32,18 @@ jobs:
           git config --local user.name "github"
           git remote set-url origin "https://${{ github.actor }}:${{ github.token }}@github.com/${{ github.repository }}"
           git pull --rebase
+
+      - name: Read file
+        uses: bfren/read-file@v1
+        id: read_file
+        with:
+          file: ./domains.txt
+      - name: Echo_file
+        run: echo "${{ steps.read_file.outputs.contents }}"
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: bash run.sh
-
+        run: bash run.sh "${{steps.Echo_file.outputs.contents }}"
 
       # 更新仓库
       - name: Update repo

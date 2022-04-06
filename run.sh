@@ -11,13 +11,10 @@
 
 # 增加执行权限
 chmod +x httpx subfinder ksubdomain
-filename=./domains.txt
-n=1
-while read line; do
-# reading each line
 
 
-domain=$line
+
+domain="$1"
 
 # printf "${domain} \n"
 # 创建域名文件夹
@@ -98,6 +95,4 @@ else
     printf "=!!= 脚本已经退出,请先输入查询的域名.\n"
     exit 1
 fi
-n=$((n+1))
-done < $filename
-# End
+
