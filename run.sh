@@ -15,6 +15,7 @@ chmod +x httpx subfinder ksubdomain
 
 
 domain="$1"
+echo $domain
 
 # printf "${domain} \n"
 # 创建域名文件夹

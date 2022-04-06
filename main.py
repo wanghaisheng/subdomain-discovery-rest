@@ -19,7 +19,6 @@ app = FastAPI()
 apiapp= FastAPI()
 
 def domainall(url):
-    print('check url',url)
     domain =urlparse(url).netloc
     print('get domain from url',domain)
 
