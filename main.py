@@ -13,7 +13,7 @@ import pywebio_battery as battery
 from app.constants import *
 import os
 from urllib.parse import urlparse
-import subprocess
+from subprocess import Popen
 app = FastAPI()
 
 apiapp= FastAPI()
@@ -22,7 +22,12 @@ def domainall(url):
     domain =urlparse(url).netloc
     print('get domain from url',domain)
 
-    list_domains = subprocess.run(["bash", "run.sh",domain])
+    p = Popen(["bash", "run.sh",domain])
+
+    # Wait until process terminates
+    while p.poll() is None:
+        time.sleep(0.5)    
+    print("subdomain crack Process ended, ret code:", p.returncode)    
     try:
         with open(domain+'/'+domain+'_sub_ok.txt',encoding="utf8") as f:
             urls =f.readlines()
