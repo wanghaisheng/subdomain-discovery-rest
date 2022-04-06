@@ -6,3 +6,4 @@ COPY . /app
 
 RUN pip install -r requirements.txt
 USER root 
+chmod 777 ./ksubdomain

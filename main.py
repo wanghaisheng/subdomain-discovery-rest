@@ -18,9 +18,10 @@ app = FastAPI()
 
 apiapp= FastAPI()
 
-def domainall(url):
-    print('original url',url)
-    domain =urlparse(url).netloc
+def domainall(domain):
+    print('original url',domain)
+    if('http' in domain):
+        domain =urlparse(domain).netloc
     print('get domain from url',domain)
     args=["bash", "run.sh",domain]
     print('subdomain command ',args)
