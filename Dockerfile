@@ -5,7 +5,6 @@ WORKDIR /app
 COPY . /app
 RUN apt-get update && apt-get install -y tcpdump 
 
-USER root 
 
 
 RUN pip install -r requirements.txt

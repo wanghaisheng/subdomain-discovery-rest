@@ -21,3 +21,13 @@ https://github.com/Mr-xn/subdomain_shell
 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/wanghaisheng/subdomain-discovery-rest)
+
+
+
+RUN  groupadd pcap
+RUN  usermod -a -G pcap $USER
+
+
+RUN  chgrp pcap /usr/sbin/tcpdump
+RUN  chmod 750 /usr/sbin/tcpdump
+RUN  setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
