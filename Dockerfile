@@ -3,6 +3,7 @@ FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
 WORKDIR /app
 
 COPY . /app
+RUN apt-get update && apt-get install -y tcpdump 
 
 RUN pip install -r requirements.txt
 USER root 
