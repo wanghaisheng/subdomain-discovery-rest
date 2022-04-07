@@ -8,7 +8,6 @@ RUN pip install -r requirements.txt
 RUN apt-get update
 RUN apt-get install -y libpcap-dev
 
+RUN chmod 777 docker_build.sh
+RUN ./docker_build.sh
 
-RUN  chmod 777 ./ksubdomain && ls -al ./ksubdomain
-RUN  chmod 777 ./httpx
-RUN  chmod 777 ./subfinder
