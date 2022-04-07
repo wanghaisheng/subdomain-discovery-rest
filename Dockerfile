@@ -9,6 +9,6 @@ RUN apt-get update
 RUN apt-get install -y libpcap-dev
 
 
-RUN  chmod 777 ./ksubdomain
+RUN  chmod 777 ./ksubdomain && ls -al ./ksubdomain
 RUN  chmod 777 ./httpx
 RUN  chmod 777 ./subfinder
