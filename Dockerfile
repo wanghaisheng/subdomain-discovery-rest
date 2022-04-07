@@ -1,18 +1,12 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
 
 WORKDIR /app
 
 COPY . /app
 RUN pip install -r requirements.txt
 
-USER root
+RUN apt-get install -y libpcap-dev
 
-RUN apt-get update && \
-      apt-get -y install sudo
-
-
-RUN chown root:root /usr/bin/sudo  && \
-chmod 4755 /usr/bin/sudo
 
 RUN sudo chmod 777 ./ksubdomain
 RUN sudo chmod 777 ./httpx
