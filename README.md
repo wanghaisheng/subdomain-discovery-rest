@@ -75,3 +75,10 @@ Successfully tagged 21f439f4c9c34806774e8491b0f3398c83fb7459:latest
 
 Tagged image "21f439f4c9c34806774e8491b0f3398c83fb7459" as "registry.heroku.com/subdomain-discovery-shopconan/web"
 ```bian yi shi duide   run qilai jinqu you bushi
+
+找到原理了 https://github.com/weibeld/heroku-buildpack-run/issues/5
+
+
+Hi, yes, the permissions will not be set, because the build is performed in a separate sandboxed build container, and changes you make to the environment of this build container (e.g. environment variables and file permissions) are not propagated to the production containers (dynos), only the raw files of your application are copied to the production dynos.
+
+The solution to your problem is to use a .profile file: create the file .profile in the root directory of your app and put the command chmod -R 777 Storage in it. This file will be sourced at the startup of each production dyno, and your permissions will be set at production time. This is described here.https://devcenter.heroku.com/articles/dynos#the-profile-file
